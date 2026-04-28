@@ -62,7 +62,7 @@ newsletter.classList.toggle("active");
 
 // Ingrédient 1 : Définir la date de fin en millisecondes 
 
-const decompteDateFinale = new Date("May 12,2026 15:00:01").getTime();
+const decompteDateFinale = new Date("May 7,2026 15:00:01").getTime();
 
 // console.log(decompteDateFinale)
 
