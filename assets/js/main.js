@@ -28,6 +28,7 @@ Cette ligne initialise une boucle for...of qui parcourt chaque élément de la c
 function toggleNewsletter() {
   const newsletter = document.querySelector(".newsletter");
   newsletter.classList.toggle("active");
+  document.body.classList.toggle("newsletter-open", newsletter.classList.contains("active"));
 }
 
 for (const show of SHOW_NEWSLETTER) {   
@@ -50,6 +51,17 @@ for (const show of SHOW_NEWSLETTER) {
     }
   });
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const newsletter = document.querySelector(".newsletter");
+
+    if (newsletter.classList.contains("active")) {
+      newsletter.classList.remove("active");
+      document.body.classList.remove("newsletter-open");
+    }
+  }
+});
 
   // COMPTE à REBOURS
 

@@ -34,6 +34,10 @@ body {
     background-size: cover;
 }
 
+body.newsletter-open {
+    overflow: hidden;
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -222,6 +226,7 @@ main {
     width: min(92vw, 640px);
     max-height: 86vh;
     overflow: auto;
+    overflow-x: hidden;
     padding: clamp(28px, 5vw, 48px);
     border-radius: 32px;
     background: linear-gradient(180deg, rgba(92, 64, 95, 0.97), rgba(75, 52, 79, 0.96));
@@ -232,12 +237,17 @@ main {
     visibility: hidden;
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    overscroll-behavior: contain;
 }
 
 .newsletter.active {
     visibility: visible;
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+}
+
+.newsletter > * {
+    min-width: 0;
 }
 
 .newsletter .newsletter__tittle h2 {
@@ -261,9 +271,14 @@ main {
     gap: 14px;
 }
 
+.newsletter form > * {
+    min-width: 0;
+}
+
 .newsletter label {
     color: var(--couleur-principal);
     font-size: 1rem;
+    overflow-wrap: anywhere;
 }
 
 .newsletter .newsletter__form input[type="email"] {
@@ -276,8 +291,9 @@ main {
 }
 
 .consent-checkbox {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 18px minmax(0, 1fr);
+    align-items: start;
     gap: 10px;
     color: var(--couleur-principal);
 }
@@ -290,8 +306,10 @@ main {
 }
 
 .consent-checkbox label {
+    min-width: 0;
     font-size: 0.95rem;
     line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 
 .newsletter__submit {
@@ -307,6 +325,7 @@ main {
     font-size: 0.9rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
+    overflow-wrap: anywhere;
 }
 
 .newsletter .newsletter__policy a {
@@ -369,6 +388,11 @@ footer .copy a:hover {
     .hero .wave {
         width: 230%;
     }
+
+    .newsletter {
+        width: min(calc(100vw - 24px), 520px);
+        max-height: calc(100vh - 24px);
+    }
 }
 
 @media (max-width: 480px) {
@@ -403,8 +427,23 @@ footer .copy a:hover {
     }
 
     .newsletter {
-        padding: 24px 18px 22px;
+        width: calc(100vw - 16px);
+        max-height: calc(100vh - 16px);
+        padding: 44px 16px 18px;
         border-radius: 24px;
+    }
+
+    .newsletter .newsletter__tittle h2 {
+        font-size: 1.95rem;
+    }
+
+    .newsletter .newsletter__tittle p {
+        font-size: 1rem;
+    }
+
+    .newsletter .newsletter__policy p {
+        font-size: 0.84rem;
+        line-height: 1.5;
     }
 
     .newsletter__close {
@@ -412,6 +451,36 @@ footer .copy a:hover {
         right: 12px;
         width: 34px;
         height: 34px;
+    }
+}
+
+@media (max-width: 360px) {
+    .newsletter {
+        width: calc(100vw - 12px);
+        max-height: calc(100vh - 12px);
+        padding: 42px 14px 16px;
+        border-radius: 20px;
+    }
+
+    .newsletter .newsletter__tittle h2 {
+        font-size: 1.75rem;
+    }
+
+    .newsletter .newsletter__tittle p,
+    .newsletter label,
+    .consent-checkbox label {
+        font-size: 0.92rem;
+    }
+
+    .newsletter .newsletter__form input[type="email"] {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .newsletter__submit {
+        min-height: 48px;
+        padding: 0 18px;
+        font-size: 0.95rem;
     }
 }
 
