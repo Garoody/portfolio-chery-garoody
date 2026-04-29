@@ -40,40 +40,37 @@
     <header>
         <!-- LOGO du site wisepanda.fr -->
         <a href="#" class="logo">
-            <img class="logo__img" src="./img/section/logo-femme.jpg" alt="logo de WisePanda.fr">
-            <span class="logo__text">  
-                <h1>Coming soon.fr</h1></span>
+            <img class="logo__img" src="./img/section/logo-maternite-doux.png" alt="Logo doux de Coming soon">
+            <div class="logo__text">
+                <h1>Coming soon.fr</h1>
+            </div>
         </a>
         <!-- Premier bouton call-to-action -->
         <nav>
             <ul>
                 <li>
-                    <button  class="b show__newsletter" > Prévenez-moi</button>
+                    <a class="b show__newsletter" role="button" tabindex="0" aria-controls="newsletter">Prévenez-moi</a>
                 </li>
             </ul>
         </nav>
-
-
     </header>
 
     <main> 
     <!-- SECTION PRINCIPAL -->
-    <section>
+    <section class="hero">
         <!-- IMAGE SVG WAVE -->
 
         <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path fill="#00cba9" fill-opacity="1"
+            <path fill="#e8c6ce" fill-opacity="1"
                 d="M0,64L48,74.7C96,85,192,107,288,149.3C384,192,480,256,576,266.7C672,277,768,235,864,197.3C960,160,1056,128,1152,144C1248,160,1344,224,1392,256L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
             </path>
-        </svg>
-        </path>
         </svg>
         <!-- CONTENU LANDING-PAGE -->
         <div class="contentBox">
             <h2>Arrive bientôt </h2>
-            <p>Sous le ciel de notre amour, une petite étoile est en train de naître
+            <p><span class="text-highlight">Sous le ciel</span> de notre amour, une petite étoile est en train de naître.
 Un souffle de tendresse grandit chaque jour dans nos cœurs.
-Entre Lauryne et Garoody, un doux secret se prépare à éclore.
+Un doux secret se prépare à éclore.
                 <br>inscrivez-vous à notre
                 newsletter.
             </p>
@@ -95,16 +92,16 @@ Entre Lauryne et Garoody, un doux secret se prépare à éclore.
                 </div>
             </div>
             <!-- Deuxième bouton call-to-action -->
-            <button class="btn show__newsletter" href="#"> Prévenez-moi!</button>
+            <a class="btn show__newsletter" role="button" tabindex="0" aria-controls="newsletter">Prévenez-moi !</a>
         </div>
-        <!-- IMAGE du panda ramen -->
+        <!-- IMAGE principale -->
         <div class="imgBox">
-            <img src="./img/section/femme2.jpg" alt="panda qui mange des ramens sur le ventre">
+            <img src="./img/section/femme2.jpg" alt="Illustration d'une future maman">
         </div>
     </section>
 
     <!-- Newsletter -->
-     <section id="newsletter" class="newsletter active">
+     <section id="newsletter" class="newsletter">
         <div class="newsletter__tittle">
             <h2>Rester connectés</h2>
             <p>Soyez informé du lancement</p>
@@ -122,7 +119,7 @@ Entre Lauryne et Garoody, un doux secret se prépare à éclore.
             <input type="checkbox" name="consent" id="consent" required>
             <label for="consent">j'accepte de recevoir la newsletter et j'ai lu la politique de confidentialité</label>
            </div>
-           <button type="submit">M'abonner</button>
+           <a class="newsletter__submit" role="button" tabindex="0">M'abonner</a>
             </form>
 
 
@@ -139,8 +136,9 @@ Entre Lauryne et Garoody, un doux secret se prépare à éclore.
 
         </div>
         <!-- image pour la fermeture du formulaire -->
-    <button> <img class="close show__newsletter" src="./img/section/close.png" alt="ima ge fermeture formulaire"> </button>               
-    </div>
+    <a class="newsletter__close show__newsletter" role="button" tabindex="0" aria-controls="newsletter" aria-label="Fermer la newsletter">
+        <img class="close" src="./img/section/close.png" alt="Icône de fermeture du formulaire">
+    </a>
 
    </section>
 

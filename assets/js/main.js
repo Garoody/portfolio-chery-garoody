@@ -25,6 +25,11 @@ const SHOW_NEWSLETTER = document.getElementsByClassName("show__newsletter");
 Cette ligne initialise une boucle for...of qui parcourt chaque élément de la collection SHOW_NEWSLETTER. 
 *
 */
+function toggleNewsletter() {
+  const newsletter = document.querySelector(".newsletter");
+  newsletter.classList.toggle("active");
+}
+
 for (const show of SHOW_NEWSLETTER) {   
 /**
 *
@@ -33,28 +38,18 @@ for (const show of SHOW_NEWSLETTER) {
 *Lorsqu'un élément est cliqué, la fonction fléchée (() => { ... }) est exécutée.
 *
 */
-show.addEventListener("click", () => { 
-/** 
-*
-*const newsletter = document.querySelector(".newsletter");
-*
-*Cette ligne sélectionne le premier élément de la page HTML ayant la classe
-*"newsletter" et le stoke dans la variable appelée newsletter.
-*La méthode querySelector retourne uniquement le premier élément correspond
-*à la requête spécifiée.
-*
-*/
-const newsletter = document.querySelector(".newsletter");
-/**
-*
-*newsletter.classlist.toggle("active"); -
-*Cette ligne utilise la méthode classlist.toggle pour ajouter ou supprimer la classe 
-*"active" de l'élément newsletter. Si l'élément a déjà la classe "active", elle est supprimée;
-*sinon, elle est ajoutée. Cela permet de basculer l'état de visibilité de l'élément.
-*/
-newsletter.classList.toggle("active");    
-});
-  }
+  show.addEventListener("click", (event) => { 
+    event.preventDefault();
+    toggleNewsletter();    
+  });
+
+  show.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleNewsletter();
+    }
+  });
+}
 
   // COMPTE à REBOURS
 
@@ -71,42 +66,25 @@ const decompteDateFinale = new Date("May 12,2026 15:00:01").getTime();
 
 function decompte()  {
 
+  const maintenant = Date.now();
     
-    // TODO_01: Récupérer l'heure actuelle
-    const maintenant = Date.now();
-    
-// console.log("maintenant : " + maintenant);
+  const tempsRestant =decompteDateFinale - maintenant;
 
-        // TODO_02: Calculer le temps restant
-        const tempsRestant =decompteDateFinale - maintenant;
+  const seconde = 1000;
+  const minute = seconde * 60;
+  const heure = minute * 60 ;
+  const jour = heure * 24;
 
-        // console.log(`temps restant : ${tempsRestant}`);
+  const j = Math.floor(tempsRestant / jour)
+  const h = Math.floor((tempsRestant % jour) / heure)
+  const m = Math.floor((tempsRestant % heure) / minute)
+  const s = Math.floor((tempsRestant % minute) / seconde)
 
-        // TODO_03: Convertire en jours, heures, minutes, secondes
-        const seconde = 1000;
-        const minute = seconde * 60;
-        const heure = minute * 60 ;
-        const jour = heure * 24;
-
-        const j = Math.floor(tempsRestant / jour)
-        // console.log("j : " + j);
-         const h = Math.floor((tempsRestant % jour) / heure)
-        // console.log("h : " + h);
-
-               const m = Math.floor((tempsRestant % heure) / minute)
-        // console.log("m : " + m);
-
-             const s = Math.floor((tempsRestant % minute) / seconde)
-        // console.log("s : " + s);
-
-        // TODO_04: Afficher le resultats dans le html
-        document.getElementById("jour").textContent =j;
-        document.getElementById("heure").textContent =h;
-        document.getElementById("minute").textContent =m;
-        document.getElementById("seconde").textContent =s;
+    document.getElementById("jour").textContent =j;
+    document.getElementById("heure").textContent =h;
+    document.getElementById("minute").textContent =m;
+    document.getElementById("seconde").textContent =s;
 }
-
-
 decompte();
 
 let time =setInterval(decompte, 1000)
