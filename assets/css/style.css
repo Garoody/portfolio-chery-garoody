@@ -19,6 +19,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    overflow-x: hidden;
 }
 
 body.newsletter-open {
@@ -390,8 +392,26 @@ footer .copy a:hover {
     }
 
     .newsletter {
-        width: min(calc(100vw - 24px), 520px);
-        max-height: calc(100vh - 24px);
+        top: 12px;
+        right: 12px;
+        bottom: 12px;
+        left: 12px;
+        width: auto;
+        max-height: none;
+        padding: 44px 18px 20px;
+        transform: none;
+        border-radius: 26px;
+    }
+
+    .newsletter.active {
+        transform: none;
+    }
+
+    .newsletter .newsletter__tittle h2,
+    .newsletter .newsletter__tittle p,
+    .newsletter .newsletter__policy p,
+    .consent-checkbox label {
+        max-width: 100%;
     }
 }
 
@@ -427,9 +447,11 @@ footer .copy a:hover {
     }
 
     .newsletter {
-        width: calc(100vw - 16px);
-        max-height: calc(100vh - 16px);
-        padding: 44px 16px 18px;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+        left: 8px;
+        padding: 42px 16px 16px;
         border-radius: 24px;
     }
 
@@ -456,9 +478,11 @@ footer .copy a:hover {
 
 @media (max-width: 360px) {
     .newsletter {
-        width: calc(100vw - 12px);
-        max-height: calc(100vh - 12px);
-        padding: 42px 14px 16px;
+        top: 6px;
+        right: 6px;
+        bottom: 6px;
+        left: 6px;
+        padding: 40px 14px 14px;
         border-radius: 20px;
     }
 

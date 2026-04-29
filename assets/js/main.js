@@ -29,6 +29,10 @@ function toggleNewsletter() {
   const newsletter = document.querySelector(".newsletter");
   newsletter.classList.toggle("active");
   document.body.classList.toggle("newsletter-open", newsletter.classList.contains("active"));
+
+  if (newsletter.classList.contains("active")) {
+    newsletter.scrollTop = 0;
+  }
 }
 
 for (const show of SHOW_NEWSLETTER) {   
