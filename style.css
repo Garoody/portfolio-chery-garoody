@@ -295,7 +295,7 @@ h1 {
 }
 
 .section {
-  padding: clamp(72px, 10vw, 124px) clamp(20px, 5vw, 72px);
+  padding: clamp(48px, 6vw, 72px) clamp(20px, 5vw, 72px);
 }
 
 .split-section {
@@ -351,7 +351,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  margin-top: 42px;
+  margin-top: 28px;
 }
 
 .skill-card {
@@ -455,7 +455,7 @@ h1 {
   grid-template-columns: minmax(0, 0.84fr) minmax(300px, 1.16fr);
   gap: clamp(28px, 6vw, 72px);
   align-items: center;
-  margin-top: 42px;
+  margin-top: 28px;
   padding: clamp(22px, 4vw, 42px);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -600,7 +600,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
-  margin-top: 42px;
+  margin-top: 28px;
 }
 
 .alternance-grid strong,
@@ -739,7 +739,7 @@ h1 {
   }
 
   .section {
-    padding: 62px 18px;
+    padding: 48px 18px;
   }
 
   .project-feature {
